@@ -26,18 +26,20 @@ class Calculator:
                     return number1 / number2
 
     def run(self):
-        option = 0
-        while option != 5:
+        while True:
             self.print_menu()
             option = int(input("Wybierz opcję:"))
             if option == 5:
                 break
             else:
-                number1 = int(input("Podaj Liczbę 1:"))
-                number2 = int(input("Podaj Liczbę 2:"))
-                result = self.calculate(option, number1, number2)
-                if result is not None:
-                    print(f"Twój wynik to: {result}")
+                if option not in (1, 2, 3, 4):
+                    print("Nie rozpoznano opcji. Wybierz jedną z poniższych")
+                else:
+                    number1 = int(input("Podaj Liczbę 1:"))
+                    number2 = int(input("Podaj Liczbę 2:"))
+                    result = self.calculate(option, number1, number2)
+                    if result is not None:
+                        print(f"Twój wynik to: {result}")
         print("Koniec programu")
 
 
